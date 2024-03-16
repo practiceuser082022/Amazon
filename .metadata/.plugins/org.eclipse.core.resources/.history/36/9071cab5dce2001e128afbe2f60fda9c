@@ -1,0 +1,10 @@
+package com.amazon.pageobjects;
+
+import org.openqa.selenium.By;
+
+public class CreateAccountPage {
+
+	By customerName=By.id("ap_customer_name");
+	
+	
+}

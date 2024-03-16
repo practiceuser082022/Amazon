@@ -1,0 +1,26 @@
+package com.amazon.tests;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.amazon.utils.ReadUserDetails;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseTest {
+	
+	public WebDriver webDriver;
+	ReadUserDetails readUserDetails;
+	
+	public WebDriver getDriver() {
+		
+		WebDriverManager.chromedriver().setup();
+		webDriver= new ChromeDriver();
+		webDriver.manage().window().maximize();
+		return webDriver;
+		
+	}
+	
+	
+
+}

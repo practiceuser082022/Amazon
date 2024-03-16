@@ -1,0 +1,45 @@
+package com.amazon.pageobjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+
+
+public class SearchProdcutPage {
+
+	WebDriver driver;
+
+	public SearchProdcutPage(WebDriver driver){
+		
+		this.driver=driver;
+	}
+
+	By searchBox = By.id("twotabsearchtextbox");
+
+	By searchBtn = By.id("nav-search-submit-button");
+	
+	public void enterProductNameOnTextBox(String productName) {
+
+		driver.findElement(searchBox).clear();
+		driver.findElement(searchBox).sendKeys(productName);
+	}
+	
+	public void clickOnSearchProduct() {
+		driver.findElement(searchBtn).click();
+	}
+
+	public void getProductByPrice() {
+		
+		// Find all price elements less than $100
+		List<WebElement> cheapProducts = driver.findElements(By.xpath("//span[@class='a-price']/span[@class='a-offscreen' and translate(substring(., 2), ',', '') < '100']"));
+
+		// Loop through the list of cheap products and do something with them
+		for (WebElement product : cheapProducts) {
+		    System.out.println("Cheap product price: " + product.getText());
+		}
+
+	}
+}

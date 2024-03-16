@@ -1,0 +1,54 @@
+package com.amazon.pageobjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class ProductPage {
+
+	WebDriver webdriver;
+
+	public ProductPage(WebDriver driver) {
+
+		this.webdriver = driver;
+	}
+	
+	By navCartIcon=By.id("nav-cart-count");
+	By addToCartBtn=By.id("add-to-cart-button");
+	By aCartBtn=By.xpath("//*[@id='attach-sidesheet-view-cart-button']/span/input");	
+	By cartItemsCount=By.xpath("//*[@class='a-truncate-cut']");
+	By frameId=By.id("attach-view-cart-button-form");
+	By productNames=By.xpath("//span[contains(@class,'a-truncate-full') and contains(text(), 'Sony Bravia')]");
+	
+	public WebElement getViewCart() {
+		
+		return webdriver.findElement(navCartIcon);
+	}
+	
+	public WebElement getAddCartButton() {
+		
+		return webdriver.findElement(addToCartBtn);
+	}
+	
+	public WebElement getACartButton() {
+		
+		return webdriver.findElement(aCartBtn);
+	}
+	
+	public List<WebElement> getCartItem() {
+		
+		return webdriver.findElements(cartItemsCount);
+	}
+	
+	public List<WebElement> getProductText() {
+		
+		return webdriver.findElements(productNames);
+	}
+
+	public void switchToFrame() {
+			
+		webdriver.switchTo().frame(webdriver.findElement(frameId));
+	}
+}

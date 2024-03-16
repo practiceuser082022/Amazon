@@ -1,0 +1,20 @@
+package com.amazon.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class CreateAccountPage {
+
+	WebDriver driver;
+	
+	public CreateAccountPage(WebDriver driver){
+		
+		this.driver=driver;
+	}
+	By customerName=By.id("ap_customer_name");
+	
+	public void enterNameOnTextBox(String name) {
+		
+		driver.findElement(customerName).sendKeys(name);
+	}
+}

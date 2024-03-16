@@ -1,0 +1,18 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPageOperations {
+
+	WebDriver webDriver;
+
+	public LoginPageOperations(WebDriver webDriver) {
+	
+		this.webDriver = webDriver;
+	}
+	
+	public void enterEmailOrPhoneNumber(String emailOrphone) {
+		
+	}
+	
+}

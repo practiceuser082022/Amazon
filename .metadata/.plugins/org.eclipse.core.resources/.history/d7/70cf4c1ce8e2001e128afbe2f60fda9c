@@ -1,0 +1,17 @@
+package com.amazon.pageoperations;
+
+public class ProductPageOperations {
+
+	public ProductPage productPage;
+	
+	public ProductPageOperations() {
+		
+	}
+	public void addProductToCart() {
+		
+	}
+	
+	public void viewCart() {
+		
+	}
+}

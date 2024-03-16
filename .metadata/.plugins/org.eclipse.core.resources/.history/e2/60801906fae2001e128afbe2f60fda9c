@@ -1,0 +1,81 @@
+package com.amazon.tests;
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.amazon.pageoperations.CommonPageOperations;
+import com.amazon.pageoperations.CreateAccountPageOperations;
+import com.amazon.pageoperations.LoginPageOperations;
+import com.amazon.pageoperations.ProductPageOperations;
+import com.amazon.pageoperations.SearchProductPageOperations;
+
+public class AddProductsTest extends BaseTest {
+  public WebDriver webDriver;
+  LoginPageOperations loginPageOperations;
+  CreateAccountPageOperations createAccountPageOperations;
+  SearchProductPageOperations searchProductPageOperations;	
+  CommonPageOperations commonPageOperations;
+  ProductPageOperations productPageOperations;
+  
+	@BeforeTest
+	public void setup() {
+
+		webDriver=getDriver();		
+		loginPageOperations=new LoginPageOperations(webDriver);
+		createAccountPageOperations=new CreateAccountPageOperations(webDriver);
+		searchProductPageOperations=new SearchProductPageOperations(webDriver);
+		commonPageOperations=new CommonPageOperations(webDriver);
+		productPageOperations=new ProductPageOperations(webDriver);
+		
+	}
+
+	@Test
+	public void createAccout() {
+		
+		createAccountPageOperations.enterName("Raj");
+	}
+	@Test(priority=2)
+	public void addProductsToCart() {
+		
+		Properties userProperties=getUserInfo();
+	
+		webDriver.get(getEnvUrl());
+		
+		loginPageOperations.clickOnSignInLink();
+		loginPageOperations.enterEmailOrPhoneNumber(userProperties.getProperty("userName"));
+		loginPageOperations.clickOnContinue();
+		loginPageOperations.enterPassword(userProperties.getProperty("passWord"));
+		loginPageOperations.clickOnSignIn();		
+		
+		
+		searchProductPageOperations.enterProductNameAndSearch("sony bravia 55 inch tv");
+		searchProductPageOperations.selectProductByPrice("50000");
+		commonPageOperations.switchToChild();
+		productPageOperations.addProductToCart();
+		productPageOperations.clickACart();		
+		assertEquals(1, productPageOperations.itemsCountInCart());
+		
+		searchProductPageOperations.enterProductNameAndSearch("sony bravia 55 inch tv");
+		searchProductPageOperations.selectProductByPriceRanage("100000","150000");
+		commonPageOperations.switchToChild();
+		productPageOperations.addProductToCart();
+		productPageOperations.clickACart();		
+		assertEquals(2, productPageOperations.itemsCountInCart());
+		
+		searchProductPageOperations.enterProductNameAndSearch("sony home theater");
+		searchProductPageOperations.selectProductByPriceRanage("20000","50000");
+		commonPageOperations.switchToChild();
+		productPageOperations.addProductToCart();
+		productPageOperations.clickACart();		
+		assertEquals(3, productPageOperations.itemsCountInCart());
+		
+		
+	}
+}
+

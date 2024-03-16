@@ -1,0 +1,10 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPageOperations {
+
+	WebDriver webDriver;
+	
+	
+}

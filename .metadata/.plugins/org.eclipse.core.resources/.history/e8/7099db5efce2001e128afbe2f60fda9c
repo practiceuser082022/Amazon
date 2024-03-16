@@ -1,0 +1,39 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+import com.amazon.pageobjects.*;
+import com.amazon.utils.Utilities;
+
+public class ProductPageOperations {
+
+	public ProductPage productPage;
+	public Utilities utilities;
+	
+	public ProductPageOperations(WebDriver webDriver) {
+		productPage=new ProductPage(webDriver);
+		utilities=new Utilities(webDriver);
+	}
+	
+	public void addProductToCart() {
+		utilities.clickUsingJS(productPage.getAddCartButton());
+	}
+	
+	public void viewCart() {
+		utilities.clickUsingJS(productPage.getViewCart());
+	}
+	
+	public void clickACart() {
+		utilities.clickUsingJS(productPage.getACartButton());
+	}
+	
+	public int itemsCountInCart() {
+		
+		return productPage.getCartItem().size();
+	}
+	
+	public void switchToFrame() {
+		
+		productPage.switchToFrame();
+	}
+}

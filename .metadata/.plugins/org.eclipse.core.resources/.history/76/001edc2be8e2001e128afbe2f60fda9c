@@ -1,0 +1,19 @@
+package com.amazon.pageoperations;
+
+import com.amazon.pageobjects.*;
+
+public class ProductPageOperations {
+
+	public ProductPage productPage;
+	
+	public ProductPageOperations() {
+		
+	}
+	public void addProductToCart() {
+		
+	}
+	
+	public void viewCart() {
+		
+	}
+}

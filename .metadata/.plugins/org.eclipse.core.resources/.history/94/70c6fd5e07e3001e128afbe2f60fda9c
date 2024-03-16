@@ -1,0 +1,20 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+import com.amazon.pageobjects.CreateAccountPage;
+
+public class CreateAccountPageOperations {
+
+	
+	CreateAccountPage createAccountPage;
+	
+	public 	CreateAccountPageOperations(WebDriver driver){
+		createAccountPage=new CreateAccountPage(driver);
+	}
+	
+
+	public void enterName(String name) {
+		createAccountPage.getUserNameTextBox().sendKeys(name);
+	}
+}

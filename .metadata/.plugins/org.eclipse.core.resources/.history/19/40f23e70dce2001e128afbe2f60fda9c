@@ -1,0 +1,10 @@
+package com.amazon.pageoperations;
+
+public class CreateAccountPageOperations {
+
+	public void createAccount() {
+		
+	}
+	
+	
+}

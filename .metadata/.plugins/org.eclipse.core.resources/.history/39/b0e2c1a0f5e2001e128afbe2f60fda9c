@@ -1,0 +1,30 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+import com.amazon.pageobjects.LoginPage;
+
+public class LoginPageOperations {
+
+	WebDriver webDriver;
+	LoginPage loginPage;
+	
+	public LoginPageOperations(WebDriver webDriver) {
+	
+		this.webDriver = webDriver;
+		loginPage=new LoginPage(webDriver);
+	}
+	
+	public void enterEmailOrPhoneNumber(String emailOrphone) {
+		loginPage.getEmailOrPhoneTextBox().sendKeys(emailOrphone);
+	}
+	
+	public void enterPassword(String password) {
+		loginPage.getPasswordTextBox().sendKeys(password);
+		
+	}
+	
+	public void clickOnContinue() {
+		loginPage.getCotinueBtn().click();
+	}
+}

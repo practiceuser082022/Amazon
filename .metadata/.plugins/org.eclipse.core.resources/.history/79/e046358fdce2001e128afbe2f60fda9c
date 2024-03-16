@@ -1,0 +1,17 @@
+package com.amazon.pageoperations;
+
+import com.amazon.pageobjects.CreateAccountPage;
+
+public class CreateAccountPageOperations {
+
+	CreateAccountPage createAccountPage;
+	
+	public 
+	CreateAccountPageOperations(){
+		
+	}
+	
+	public void enterName(String name) {
+		
+	}
+}

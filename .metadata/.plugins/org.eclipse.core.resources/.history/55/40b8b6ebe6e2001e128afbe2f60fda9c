@@ -1,0 +1,9 @@
+package com.amazon.pageoperations;
+
+import org.openqa.selenium.WebDriver;
+
+public class CommonPageOperations {
+
+	WebDriver driver;
+	
+}

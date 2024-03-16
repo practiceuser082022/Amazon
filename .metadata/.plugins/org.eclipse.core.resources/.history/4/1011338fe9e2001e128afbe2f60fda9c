@@ -1,0 +1,28 @@
+package com.amazon.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class ProductPage {
+
+	WebDriver driver;
+
+	public ProductPage(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	
+	By navCartIcon=By.id("nav-cart-count");
+	By addToCartBtn=By.id("add-to-cart-button");
+	
+	public void clickOnCart() {
+		
+		driver.findElement(navCartIcon).click();
+	}
+	
+	public void getAddCartButton() {
+		
+		return driver.findElement(addToCartBtn);
+	}
+	
+}

@@ -1,0 +1,11 @@
+import java.util.Properties;
+
+public class ReadUserDetails {
+
+	public Properties getUserInfo() {
+		
+		Properties properties=new Properties();
+		
+		return new Properties();
+	}
+}

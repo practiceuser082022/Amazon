@@ -1,0 +1,24 @@
+package com.amazon.utils;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Utilities {
+
+	public WebDriver webDriver;
+	
+	public Utilities(WebDriver webDriver) {
+	
+		this.webDriver = webDriver;
+	}
+
+	
+	
+	public void clickUsingJS(WebElement element) {
+
+		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		js.executeScript("arguments[0].click();", element);
+	}
+}

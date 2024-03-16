@@ -1,0 +1,34 @@
+package com.amazon.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class ProductPage {
+
+	WebDriver driver;
+
+	public ProductPage(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	
+	By navCartIcon=By.id("nav-cart-count");
+	By addToCartBtn=By.id("add-to-cart-button");
+	By aCartBtn=By.id("a-button-input");
+	
+	public WebElement getViewCart() {
+		
+		return driver.findElement(navCartIcon);
+	}
+	
+	public WebElement getAddCartButton() {
+		
+		return driver.findElement(addToCartBtn);
+	}
+	
+	public WebElement getACartButton() {
+		
+		return driver.findElement(addToCartBtn);
+	}
+}

@@ -1,0 +1,48 @@
+package com.amazon.tests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class AmazonCartAddition {
+    public static void main(String[] args) {
+        // Set the path to ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
+        // Set Chrome options to disable notifications and maximize window
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        options.addArguments("--start-maximized");
+
+        // Initialize WebDriver
+        WebDriver driver = new ChromeDriver(options);
+
+        // Open Amazon website
+        driver.get("https://www.amazon.com");
+
+        // Search for a product
+        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        searchBox.sendKeys("Your Product Name"); // Replace "Your Product Name" with the actual product name
+        searchBox.submit();
+
+        // Click on the first search result (assuming it's the product you want)
+        WebElement firstSearchResult = driver.findElement(By.xpath("//span[@class='a-size-medium a-color-base a-text-normal']"));
+        firstSearchResult.click();
+
+        // Add the product to the cart
+        WebElement addToCartButton = driver.findElement(By.id("add-to-cart-button"));
+        addToCartButton.click();
+
+        // Wait for some time (you might want to use WebDriverWait for more robust waits)
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Close the browser
+        driver.quit();
+    }
+}
